@@ -1,6 +1,8 @@
-package com.zeroo8.quora.dto;
+package com.zeroo8.quora.dto.userDTO;
 
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,8 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UpdateUserRequest {
+public class CreateUserRequest {
+    @NotBlank
     private String username;
+
+    @NotBlank
+    @Email
     private String email;
-    private String bio;
 }

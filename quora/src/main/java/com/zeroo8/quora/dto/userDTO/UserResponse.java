@@ -1,4 +1,4 @@
-package com.zeroo8.quora.dto;
+package com.zeroo8.quora.dto.userDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

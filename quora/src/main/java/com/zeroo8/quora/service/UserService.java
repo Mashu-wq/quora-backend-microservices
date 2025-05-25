@@ -1,9 +1,9 @@
 package com.zeroo8.quora.service;
 
 import com.zeroo8.quora.adapter.UserAdapter;
-import com.zeroo8.quora.dto.CreateUserRequest;
-import com.zeroo8.quora.dto.UpdateUserRequest;
-import com.zeroo8.quora.dto.UserResponse;
+import com.zeroo8.quora.dto.userDTO.CreateUserRequest;
+import com.zeroo8.quora.dto.userDTO.UpdateUserRequest;
+import com.zeroo8.quora.dto.userDTO.UserResponse;
 import com.zeroo8.quora.exception.CustomException;
 import com.zeroo8.quora.exception.EmailAlreadyExistsException;
 import com.zeroo8.quora.models.User;
@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -46,5 +47,11 @@ public UserResponse createUser(CreateUserRequest request) {
                 .orElseThrow(() -> new CustomException("User not found", HttpStatus.NOT_FOUND));
         userAdapter.updateEntity(user, request);
         return userAdapter.toResponse(user);
+    }
+
+    public List<UserResponse> getAllUsers() {
+        return userRepository.findAll().stream()
+                .map(userAdapter::toResponse)
+                .toList();
     }
 }

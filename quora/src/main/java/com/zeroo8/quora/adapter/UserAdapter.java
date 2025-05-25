@@ -1,8 +1,8 @@
 package com.zeroo8.quora.adapter;
 
-import com.zeroo8.quora.dto.CreateUserRequest;
-import com.zeroo8.quora.dto.UpdateUserRequest;
-import com.zeroo8.quora.dto.UserResponse;
+import com.zeroo8.quora.dto.userDTO.CreateUserRequest;
+import com.zeroo8.quora.dto.userDTO.UpdateUserRequest;
+import com.zeroo8.quora.dto.userDTO.UserResponse;
 import com.zeroo8.quora.models.User;
 import org.springframework.stereotype.Component;
 
